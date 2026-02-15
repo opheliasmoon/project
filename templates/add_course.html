@@ -1,1 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Course</title>
+</head>
+<body>
+
+<h1>Add Course</h1>
+
+<form method="post" action="/add-course">
+
+    <label>Course ID:</label><br>
+    <input type="text" name="course_id" required><br><br>
+
+    <label>Course Name:</label><br>
+    <input type="text" name="course_name" required><br><br>
+
+    <label>Credit Hours:</label><br>
+    <input type="number" name="credit_hours" required><br><br>
+
+    <label>Department:</label><br>
+    <input type="text" name="department" required><br><br>
+
+    <button type="submit">Add Course</button>
+
+</form>
+
+<br>
+<a href="/courses">Back to Course List</a>
+
+</body>
+</html>
 
