@@ -1,1 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Confirm Delete</title>
+</head>
+<body>
+
+<h1>Confirm Course Deletion</h1>
+
+<p>Are you sure you want to delete this course?</p>
+
+<form method="post" action="/delete-course/{{ course.course_id }}">
+    <button type="submit">Yes, Delete</button>
+</form>
+
+<br>
+
+<a href="/courses">Cancel</a>
+
+</body>
+</html>
 
