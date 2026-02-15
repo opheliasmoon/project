@@ -1,1 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Course List</title>
+</head>
+<body>
+
+<h1>Course List</h1>
+
+<a href="/add-course">Add New Course</a>
+
+<br><br>
+
+<table border="1" cellpadding="8">
+
+    <tr>
+        <th>Course ID</th>
+        <th>Course Name</th>
+        <th>Credit Hours</th>
+        <th>Department</th>
+        <th>Action</th>
+    </tr>
+
+    {% for course in courses %}
+    <tr>
+        <td>{{ course.course_id }}</td>
+        <td>{{ course.course_name }}</td>
+        <td>{{ course.credit_hours }}</td>
+        <td>{{ course.department }}</td>
+        <td>
+            <a href="/delete-confirm/{{ course.course_id }}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+</body>
+</html>
 
