@@ -88,4 +88,30 @@ def delete_course(course_id: str, db: Session = Depends(get_db)):
 
     return RedirectResponse("/courses", status_code=303)
 
+@app.get("/delete-confirm/{course_id}", response_class=HTMLResponse)
+def delete_confirm(request: Request, course_id: str, db: Session = Depends(get_db)):
+
+    course = db.query(models.Course).filter(
+        models.Course.course_id == course_id
+    ).first()
+
+    return templates.TemplateResponse("delete_confirm.html", {
+        "request": request,
+        "course": course
+    })
+
+@app.post("/delete-course/{course_id}")
+def delete_course(course_id: str, db: Session = Depends(get_db)):
+
+    course = db.query(models.Course).filter(
+        models.Course.course_id == course_id
+    ).first()
+
+    if course:
+        db.delete(course)
+        db.commit()
+
+    return RedirectResponse("/courses", status_code=303)
+
+
 
